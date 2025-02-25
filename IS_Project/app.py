@@ -1,6 +1,10 @@
 #-------CV code Motion Capture-----------------------
 import cv2
 import os
+import requests
+import json
+import sys
+import subprocess
 
 # Define the output folder
 output_folder = 'clips'
@@ -90,7 +94,6 @@ cap.release()
 if out is not None:
     out.release()
 #----------FFMpeg Clip Cutting-------------------------
-import subprocess
 
 # Specify the path to your video file inside the "clips" folder
 video_file = os.path.join('clips', 'clip_5.mp4')  # Adjust the filename if needed
@@ -115,10 +118,6 @@ command = [
 # Run the ffmpeg command
 subprocess.run(command)
 #----------Platerecognizer  API to get plate number------------------
-import requests
-import json
-import sys
-
 regions = ['in']  # Change to your country
 
 # Provide the path of the image inside the "frames" folder
